@@ -2,10 +2,10 @@
 
 ## Sources
 
-[javascript challenges from indiesquidge](https://github.com/indiesquidge/javascript-challenges)
+['javascript challenges' from indiesquidge](https://github.com/indiesquidge/javascript-challenges)
 
-[excersizes from kolodny](https://github.com/kolodny/exercises)
+['excersizes' from kolodny](https://github.com/kolodny/exercises)
 
-[js-challenges from Rawnly](https://github.com/Rawnly/js-challenges)
+['js-challenges' from Rawnly](https://github.com/Rawnly/js-challenges)
 
-[In-Javascript-we-trust by yeungon](https://github.com/yeungon/In-JavaScript-we-trust)
+['In-Javascript-we-trust' by yeungon](https://github.com/yeungon/In-JavaScript-we-trust)
