@@ -1,9 +1,9 @@
 const squareRoot = (radicand) => {
 
-  if(radicand < 1) {
+  if(!(typeof radicand === 'number' && radicand >= 0)) {
     return NaN;
   }
-  
+
   let interval = 0;
   let root = radicand / 2;
   
