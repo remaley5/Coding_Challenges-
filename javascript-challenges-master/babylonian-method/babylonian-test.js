@@ -1,4 +1,4 @@
-const squareRoot = require('./answer')
+const squareRoot = require('./babylonian.js')
 const test = require('tape')
 
 test('it calculates an integer square root', assert => {
