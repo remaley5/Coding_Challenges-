@@ -1,7 +1,45 @@
 const test = require('tape')
 const diff = require('./object-diff')
 
-test('it calculates the diff of shallow object properties', assert => {
+test('it calculates the diff of shallow object properties deleted', assert => {
+  const oldCode = {
+    apples: 3,
+    oranges: 4
+  }
+  const newCode = {
+    apples: 3
+  }
+
+  const objectDiff = [
+    ['-', 'oranges', 4]
+  ]
+
+  assert.equal(diff(newCode, oldCode).length, 2)
+  assert.deepEqual(diff(newCode, oldCode), objectDiff)
+
+})
+
+test('it calculates the diff of deep object properties deleted', assert => {
+  const oldCode = {
+    apples: 3,
+    oranges: 4
+
+  }
+  const newCode = {
+    apples: 3
+  }
+
+  const objectDiff = [
+    ['-', 'oranges', 4]
+  ]
+
+  assert.equal(diff(newCode, oldCode).length, 2)
+  assert.deepEqual(diff(newCode, oldCode), objectDiff)
+  
+})
+
+
+test.skip('it calculates the diff of shallow object properties', assert => {
   const newCode = {
     apples: 3,
     oranges: 4
@@ -17,8 +55,6 @@ test('it calculates the diff of shallow object properties', assert => {
   ]
 
   assert.equal(diff(newCode, oldCode).length, 2)
-  console.log('new code: ', newCode);
-  console.log('old code: ', oldCode);
   assert.deepEqual(diff(newCode, oldCode), objectDiff)
 
   assert.end()
