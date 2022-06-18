@@ -16,8 +16,10 @@ test('it calculates the diff of shallow object properties', assert => {
     ['+', 'oranges', 4]
   ]
 
-  assert.deepEqual(diff(newCode, oldCode), objectDiff)
   assert.equal(diff(newCode, oldCode).length, 2)
+  console.log('new code: ', newCode);
+  console.log('old code: ', oldCode);
+  assert.deepEqual(diff(newCode, oldCode), objectDiff)
 
   assert.end()
 })
