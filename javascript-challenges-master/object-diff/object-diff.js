@@ -1,5 +1,5 @@
 
-const diff = (oldCode, newCode )  => {
+const diff = (newCode, oldCode)  => {
 
   let differences = [];
 
@@ -27,8 +27,9 @@ const diff = (oldCode, newCode )  => {
   }
 
   objectDiff(oldCode, newCode, null);
-  console.log('differences: ', differences);
-  //return differences;
+  // objectDiff(newCode, oldCode, null);
+  
+  return differences;
 }
 
 
@@ -54,6 +55,6 @@ const newObj = {
   }
 }
 
-console.log(diff(oldObj, newObj));
+// console.log(diff(oldObj, newObj));
 
 module.exports = diff

@@ -1,7 +1,7 @@
 const test = require('tape')
 const diff = require('./object-diff')
 
-test('it calculates the diff of shallow object properties deleted', assert => {
+test('only deleted: it calculates the diff of shallow object properties deleted', assert => {
   const oldCode = {
     apples: 3,
     oranges: 4
@@ -14,29 +14,73 @@ test('it calculates the diff of shallow object properties deleted', assert => {
     ['-', 'oranges', 4]
   ]
 
-  assert.equal(diff(newCode, oldCode).length, 2)
-  assert.deepEqual(diff(newCode, oldCode), objectDiff)
-
-})
-
-test('it calculates the diff of deep object properties deleted', assert => {
-  const oldCode = {
-    apples: 3,
-    oranges: 4
-
-  }
-  const newCode = {
-    apples: 3
-  }
-
-  const objectDiff = [
-    ['-', 'oranges', 4]
-  ]
-
-  assert.equal(diff(newCode, oldCode).length, 2)
+  assert.equal(diff(newCode, oldCode).length, 1)
   assert.deepEqual(diff(newCode, oldCode), objectDiff)
   
+  assert.end()
+
 })
+
+test('only deleted: it calculates the diff of nested object properties deleted', assert => {
+  const newCode = {
+    apples: 3,
+    oranges: {
+      navel: 5
+    }
+  }
+
+  const oldCode = {
+    apples: 3,
+    oranges: {
+      valencia: 4
+    }
+  }
+
+  const objectDiff = [
+    ['-', 'oranges.valencia', 4],
+  ]
+
+  assert.equal(diff(newCode, oldCode).length, 1)
+  assert.deepEqual(diff(newCode, oldCode), objectDiff)
+
+  assert.end()
+})
+
+
+test('only deleted: it calculates the diff of doubly nested object properties', assert => {
+  const newCode = {
+    apples: 3,
+    oranges: {
+      bergamot: 3,
+      navel: {
+        peaches: 1,
+        apples: 3
+      }
+    }
+  }
+
+  const oldCode = {
+    apples: 3,
+    oranges: {
+      bergamot: 3,
+      valencia: {
+        pears: 2,
+        oranges: 4
+      }
+    }
+  }
+
+  const objectDiff = [
+    [ '-', 'oranges.valencia.pears', 2 ],
+    [ '-', 'oranges.valencia.oranges', 4 ],
+  ]
+
+  assert.deepEqual(diff(newCode, oldCode), objectDiff)
+  assert.equal(diff(newCode, oldCode).length, 2)
+
+  assert.end()
+})
+
 
 
 test.skip('it calculates the diff of shallow object properties', assert => {
