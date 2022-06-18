@@ -104,7 +104,7 @@ test('it calculates the diff of shallow object properties', assert => {
   assert.end()
 })
 
-test.skip('it calculates the diff of nested object properties', assert => {
+test('it calculates the diff of nested object properties', assert => {
   const newCode = {
     apples: 3,
     oranges: {
