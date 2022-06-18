@@ -32,28 +32,4 @@ const diff = (newCode, oldCode)  => {
 }
 
 
-const oldObj = {
-  'apple': 'sauce',
-  'stone': 'fruit',
-  'orange': 'slice',
-  'star': {
-    'fruit': 'yes',
-    'shape': 'yes',
-    'color': 'no',
-    'thing': {
-      'sky': 'yes'
-    }
-  }
-}
-
-const newObj = {
-  'apple': 'sauce',
-  'stone': 'fruit',
-  'paddington': {
-    'bear': 'yes',
-  }
-}
-
-// console.log(diff(oldObj, newObj));
-
 module.exports = diff
