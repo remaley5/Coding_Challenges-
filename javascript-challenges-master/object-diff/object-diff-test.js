@@ -1,7 +1,7 @@
 const test = require('tape')
 const diff = require('./object-diff')
 
-test('only deleted: it calculates the diff of shallow object properties deleted', assert => {
+test.skip('only deleted: it calculates the diff of shallow object properties deleted', assert => {
   const oldCode = {
     apples: 3,
     oranges: 4
@@ -21,7 +21,7 @@ test('only deleted: it calculates the diff of shallow object properties deleted'
 
 })
 
-test('only deleted: it calculates the diff of nested object properties deleted', assert => {
+test.skip('only deleted: it calculates the diff of nested object properties deleted', assert => {
   const newCode = {
     apples: 3,
     oranges: {
@@ -47,7 +47,7 @@ test('only deleted: it calculates the diff of nested object properties deleted',
 })
 
 
-test('only deleted: it calculates the diff of doubly nested object properties', assert => {
+test.skip('only deleted: it calculates the diff of doubly nested object properties', assert => {
   const newCode = {
     apples: 3,
     oranges: {
@@ -83,7 +83,7 @@ test('only deleted: it calculates the diff of doubly nested object properties', 
 
 
 
-test.skip('it calculates the diff of shallow object properties', assert => {
+test('it calculates the diff of shallow object properties', assert => {
   const newCode = {
     apples: 3,
     oranges: 4
