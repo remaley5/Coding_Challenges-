@@ -1,10 +1,12 @@
 
 const diff = (oldCode, newCode )  => {
 
-  var differences = [];
+  let differences = [];
 
   const pushRemaining = (value, lastKey) => {
+    console.log('PR: lastKey: ', lastKey);
     if(typeof value === "object" && value !== null) {
+      console.log('- calling again');
       for(key in value) {
         pushRemaining(value[key], lastKey ? lastKey + '.' + key : key);
       }
@@ -14,12 +16,15 @@ const diff = (oldCode, newCode )  => {
   }
 
   const objectDiff = (oldVal, newVal, lastKey) => {
+    console.log('oD: LastKey: ', lastKey);
     if(oldVal === newVal) {
       return;
     } else if((!newVal || !(typeof newVal === "object" && newVal !== null))) {
-      pushRemaining(oldVal, lastKey + key + '.');
+      console.log(' - calling pR')
+      pushRemaining(oldVal, lastKey);
     } else if(typeof oldVal === "object" && oldVal !== null) {
       for(key in oldVal) {
+        console.log('- calling again', lastKey, key);
         objectDiff(oldVal[key], newVal[key], lastKey ? lastKey + '.' + key : key);
       }
     } 
@@ -30,19 +35,27 @@ const diff = (oldCode, newCode )  => {
   //return differences;
 }
 
+
 const oldObj = {
   'apple': 'sauce',
   'stone': 'fruit',
   'orange': 'slice',
-  'paddington': {
-    'bear': 'yes'
+  'star': {
+    'fruit': 'yes',
+    'shape': 'yes',
+    'color': 'no',
+    'thing': {
+      'sky': 'yes'
+    }
   }
 }
-
 
 const newObj = {
   'apple': 'sauce',
   'stone': 'fruit',
+  'paddington': {
+    'bear': 'yes',
+  }
 }
 
 console.log(diff(oldObj, newObj));
